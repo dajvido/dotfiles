@@ -1,0 +1,15 @@
+[user]
+	email = dawid.jaskot@gmail.com
+	name = Dawid Jaskot
+[push]
+	default = current
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	unadd = reset HEAD
+	uncommit = reset HEAD~1 --soft
+	unmerge = reset --hard ORIG_HEAD
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -1,9 +1,9 @@
 [submodule "vim/pack/plugins/start/fzf"]
 	path = vim/pack/plugins/start/fzf
-	url = https://github.com/junegunn/fzf
-[submodule "vim/pack/plugins/start/vim-fugitive"]
-	path = vim/pack/plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
+	url = https://github.com/junegunn/fzf.git
+[submodule "vim/pack/plugins/start/fugitive"]
+	path = vim/pack/plugins/start/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/pack/plugins/opt/neocomplete"]
 	path = vim/pack/plugins/opt/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git

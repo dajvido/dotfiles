@@ -12,3 +12,4 @@ set shiftwidth=2                  " Indent size for << and >>
 set softtabstop=2                 " Remove <Tab> symbols as it was spaces
 set tabstop=2                     " Number of spaces that a <Tab> in the file counts for
 set textwidth=0                   " Do not wrap words (insert)
+set updatetime=200                " Set update delay (default 4000ms)

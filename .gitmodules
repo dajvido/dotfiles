@@ -4,3 +4,6 @@
 [submodule "vim/pack/plugins/start/vim-fugitive"]
 	path = vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/plugins/opt/gg"]
+	path = vim/pack/plugins/opt/gg
+	url = https://github.com/airblade/vim-gitgutter.git

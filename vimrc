@@ -17,6 +17,8 @@ set updatetime=200                " Set update delay (default 4000ms)
 """ Configure Neocomplete
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
 imap <expr><C-j>      pumvisible() ? "\<C-n>" : "\<C-j>"
 imap <expr><C-k>      pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr><C-l>  neocomplete#mappings#complete_common_string()

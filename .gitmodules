@@ -13,3 +13,6 @@
 [submodule "vim/pack/plugins/opt/elixir"]
 	path = vim/pack/plugins/opt/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "vim/pack/plugins/opt/javascript"]
+	path = vim/pack/plugins/opt/javascript
+	url = https://github.com/pangloss/vim-javascript.git

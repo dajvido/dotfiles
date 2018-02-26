@@ -26,13 +26,3 @@ let g:nofrils_heavylinenumbers=1
 
 """ Configure Gitgutter
 set signcolumn=yes
-
-""" Configure Neocomplete
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 1
-imap <expr><C-j>      pumvisible() ? "\<C-n>" : "\<C-j>"
-imap <expr><C-k>      pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr><C-l>  neocomplete#mappings#complete_common_string()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

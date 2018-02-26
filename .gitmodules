@@ -16,3 +16,6 @@
 [submodule "vim/pack/plugins/opt/javascript"]
 	path = vim/pack/plugins/opt/javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/pack/colors/start/nofrils"]
+	path = vim/pack/colors/start/nofrils
+	url = git@github.com:robertmeta/nofrils.git

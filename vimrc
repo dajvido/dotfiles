@@ -1,6 +1,8 @@
 highlight ColorColumn ctermbg=10
 set autoindent                    " Automatically indent new line
 set backspace=indent,eol,start    " Config backspace
+set backupdir=~/.vim/backup/      " where to put backup files
+set backup                        " make backup files
 set clipboard=unnamed,unnamedplus " Copy paste to clipboard
 set colorcolumn=101               " highlight column
 set eol                           " Ensure newline at EOF on save
@@ -13,6 +15,15 @@ set softtabstop=2                 " Remove <Tab> symbols as it was spaces
 set tabstop=2                     " Number of spaces that a <Tab> in the file counts for
 set textwidth=0                   " Do not wrap words (insert)
 set updatetime=200                " Set update delay (default 4000ms)
+
+""" Theme
+filetype plugin indent on
+syntax enable
+silent! colorscheme nofrils-dark
+let g:nofrils_strbackgrounds=1
+let g:nofrils_heavycomments=1
+let g:nofrils_heavylinenumbers=1
+
 
 """ Configure Neocomplete
 let g:acp_enableAtStartup = 0

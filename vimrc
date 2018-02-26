@@ -24,6 +24,8 @@ let g:nofrils_strbackgrounds=1
 let g:nofrils_heavycomments=1
 let g:nofrils_heavylinenumbers=1
 
+""" Configure Gitgutter
+set signcolumn=yes
 
 """ Configure Neocomplete
 let g:acp_enableAtStartup = 0

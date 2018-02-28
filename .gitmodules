@@ -25,3 +25,12 @@
 [submodule "vim/pack/plugins/start/nerdtree"]
 	path = vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/pack/plugins/start/vim-hug-neovim-rpc"]
+	path = vim/pack/plugins/start/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
+[submodule "vim/pack/plugins/start/nvim-yarp"]
+	path = vim/pack/plugins/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "vim/pack/plugins/start/deoplete"]
+	path = vim/pack/plugins/start/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git

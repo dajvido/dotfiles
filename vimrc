@@ -11,6 +11,7 @@ set clipboard=unnamed,unnamedplus   " Copy paste to clipboard
 set colorcolumn=101                 " Highlight vertical column
 set cursorline                      " Highlight current line
 set directory=~/.vim/swap/          " Path to swap directory
+set encoding=utf-8                  " Set encoding required by python extensions
 set eol                             " Ensure newline at EOF on save
 set expandtab                       " Replace <Tab> with spaces
 set laststatus=2                    " Always show the status line

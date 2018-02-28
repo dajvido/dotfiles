@@ -34,3 +34,6 @@
 [submodule "vim/pack/plugins/start/deoplete"]
 	path = vim/pack/plugins/start/deoplete
 	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "vim/pack/plugins/start/airline-themes"]
+	path = vim/pack/plugins/start/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git

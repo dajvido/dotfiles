@@ -64,6 +64,7 @@ let g:deoplete#enable_at_startup = 1
 
 """ Airline tabline
 let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 set noshowmode
 let g:airline#extensions#tabline#enabled = 1
 

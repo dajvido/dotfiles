@@ -1,4 +1,6 @@
 vim/.netrwhist
 vim/backup/*
-vim/temp/*
+vim/dein/*
 vim/session/*
+vim/temp/*
+vim/undo/*

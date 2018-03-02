@@ -14,7 +14,7 @@ if dein#load_state(expand('~/.vim/dein'))
 
   call dein#add('Shougo/dein.vim')
 
-  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -28,11 +28,11 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-fugitive', { 'on_event': 'CursorHold' })
   call dein#add('airblade/vim-gitgutter')
 
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('scrooloose/nerdcommenter')
+  call dein#add('scrooloose/nerdtree', { 'lazy': 1 })
+  call dein#add('scrooloose/nerdcommenter', { 'on_event': 'CursorHold' })
 
   call dein#add('w0rp/ale')
 
@@ -42,6 +42,10 @@ if dein#load_state(expand('~/.vim/dein'))
 
   call dein#end()
   call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
 endif
 
 " Assign leader key
@@ -133,17 +137,8 @@ if has('nvim')
   tnoremap <C-q> <C-\><C-n>
 
   " Neoterminal
-  nnoremap <silent> <f10> :TREPLSendFile<cr>
-  nnoremap <silent> <f9> :TREPLSend<cr>
-  vnoremap <silent> <f9> :TREPLSend<cr>
-  nnoremap <silent> ,to :call neoterm#open()<cr>
-  nnoremap <silent> ,tc :call neoterm#close()<cr>
-  nnoremap <silent> ,tl :call neoterm#clear()<cr>
-  nnoremap <silent> ,tk :call neoterm#kill()<cr>
-  nnoremap <silent> ,ra :call neoterm#test#run('all')<cr>
-  nnoremap <silent> ,rf :call neoterm#test#run('file')<cr>
-  nnoremap <silent> ,rc :call neoterm#test#run('current')<cr>
-  nnoremap <silent> ,rr :call neoterm#test#rerun()<cr>
+  nnoremap <silent> <leader>. :Ttoggle<cr>
+  nnoremap <silent> <C-l> :Tclear1<cr>
 
   " Git commands
   command! -nargs=+ Tg :T git <args>

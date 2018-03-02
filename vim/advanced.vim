@@ -52,9 +52,6 @@ endif
 filetype plugin indent on
 set termguicolors
 colorscheme nofrils-dark
-"let g:nofrils_strbackgrounds=1
-"let g:nofrils_heavycomments=1
-"let g:nofrils_heavylinenumbers=1
 
 " Syntax
 set signcolumn=yes
@@ -137,12 +134,13 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 if has('nvim')
-  " Terminal
-  tnoremap <C-q> <C-\><C-n>
-
   " Neoterminal
-  nnoremap <silent> <leader>. :Ttoggle<cr>
-  nnoremap <silent> <C-l> :Tclear1<cr>
+  let g:neoterm_autoinsert = 1
+  inoremap <silent><C-s> <esc>:Ttoggle<CR>
+  nnoremap <silent><C-l> :Tclear1<cr>
+  nnoremap <silent><C-s> :Ttoggle<CR>
+  tnoremap <C-q> <C-\><C-n>
+  tnoremap <silent><C-s> <C-\><C-n>:Ttoggle<CR>
 
   " Git commands
   command! -nargs=+ Tg :T git <args>

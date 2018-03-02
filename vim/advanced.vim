@@ -64,11 +64,37 @@ colorscheme nofrils-dark
 set signcolumn=yes
 let g:ale_echo_msg_format='%severity% [%linter%] %s'
 
-" FZF
+" FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting
-let $FZF_DEFAULT_COMMAND='ag -g ""'
-let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  set grepprg=rg\ --vimgrep
 
+  command! -bang -nargs=* FindCS call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+  function! SearchWordWithRipgrep()
+    execute 'FindCS' expand('<cword>')
+  endfunction
+
+  function! SearchVisualSelectionWithRipgrep() range
+    let old_reg=getreg('"')
+    let old_regtype=getregtype('"')
+    let old_clipboard=&clipboard
+    set clipboard&
+    normal! ""gvy
+    let selection=getreg('"')
+    call setreg('"', old_reg, old_regtype)
+    let &clipboard=old_clipboard
+    execute 'FindCS' selection
+  endfunction
+
+  nnoremap <silent> <leader>g :Find<CR>
+  nnoremap <silent> <leader>G :FindCS<CR>
+  nnoremap <silent> K :call SearchWordWithRipgrep()<CR>
+  vnoremap <silent> K :call SearchVisualSelectionWithRipgrep()<CR>
+endif
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>w :Windows<CR>
@@ -77,31 +103,13 @@ nnoremap <silent> <leader>l :Lines<CR>
 nnoremap <silent> <leader>o :BTags<CR>
 nnoremap <silent> <leader>O :Tags<CR>
 nnoremap <silent> <leader>? :History<CR>
-nnoremap <silent> <leader>a :execute 'Ag ' . input('Ag/')<CR>
-nnoremap <silent> K :call SearchWordWithAg()<CR>
-vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
-nnoremap <silent> <leader>gl :Commits<CR>
-nnoremap <silent> <leader>ga :BCommits<CR>
+nnoremap <silent> <leader>c :Commits<CR>
+nnoremap <silent> <leader>C :BCommits<CR>
 nnoremap <silent> <leader>T :Filetypes<CR>
 
-imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-f> <plug>(fzf-complete-file)
+imap <C-x><C-p> <plug>(fzf-complete-path)
 imap <C-x><C-l> <plug>(fzf-complete-line)
-
-function! SearchWordWithAg()
-  execute 'Ag' expand('<cword>')
-endfunction
-
-function! SearchVisualSelectionWithAg() range
-  let old_reg=getreg('"')
-  let old_regtype=getregtype('"')
-  let old_clipboard=&clipboard
-  set clipboard&
-  normal! ""gvy
-  let selection=getreg('"')
-  call setreg('"', old_reg, old_regtype)
-  let &clipboard=old_clipboard
-  execute 'Ag' selection
-endfunction
 
 " Deoplete config
 let g:deoplete#enable_at_startup=1

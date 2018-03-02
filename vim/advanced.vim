@@ -48,10 +48,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-" Assign leader key
-let g:mapleader=","
-let g:maplocalleader="\\"
-
 " Theme
 filetype plugin indent on
 set termguicolors

@@ -1,2 +1,2 @@
-source ~/.vim/advanced.vim
 source ~/.vim/base.vim
+source ~/.vim/advanced.vim

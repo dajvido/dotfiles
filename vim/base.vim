@@ -6,7 +6,7 @@ let g:vimdirs_vimhome = $HOME.'/.vim/'            " Path to Home directory
 let g:vimdirs_temp = g:vimdirs_vimhome."temp"     " Path to Temp directory
 let g:vimdirs_backup = g:vimdirs_vimhome."backup" " Path to Backup directory
 let g:vimdirs_undo = g:vimdirs_vimhome."undo"     " Path to Undo directory
-let g:session_dir= g:vimdirs_vimhome."session"    " Path to Session directory
+let g:session_dir= g:vimdirs_vimhome."session/"   " Path to Session directory
 
 if !isdirectory(g:vimdirs_vimhome)
   call mkdir(g:vimdirs_vimhome)
@@ -19,6 +19,9 @@ if !isdirectory(g:vimdirs_vimhome."temp")
 endif
 if !isdirectory(g:vimdirs_vimhome."undo")
   call mkdir(g:vimdirs_vimhome."undo","p")
+endif
+if !isdirectory(g:vimdirs_vimhome."session")
+  call mkdir(g:vimdirs_vimhome."session","p")
 endif
 execute "set directory=".escape(g:vimdirs_temp, ' ').'//'
 execute "set backupdir=".escape(g:vimdirs_backup, ' ').'//'

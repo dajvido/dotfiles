@@ -198,8 +198,10 @@ set $input_source "$(pactl list short sources | grep input | head -n1 | cut -f2)
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume $output_sink +2%
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume $output_sink -2%
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute $output_sink toggle
-bindsym XF86MonBrightnessUp   exec --no-startup-id pactl set-source-volume $input_source +2%
-bindsym XF86MonBrightnessDown exec --no-startup-id pactl set-source-volume $input_source -2%
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Touchpad controls
 bindsym Control+F1 exec --no-startup-id xinput --disable 'AlpsPS/2 ALPS DualPoint TouchPad'

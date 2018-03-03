@@ -34,7 +34,7 @@ window:
   decorations: true
 
 # Display tabs using this many cells (changes require restart)
-tabspaces: 8
+tabspaces: 2
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -109,8 +109,8 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x262626'
+    foreground: '0xeeeeee'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:

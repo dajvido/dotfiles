@@ -19,6 +19,8 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  call dein#add('Shougo/neosnippet.vim', { 'on_event': 'InsertEnter' })
+  call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
 
   call dein#add('robertmeta/nofrils')
 
@@ -106,12 +108,15 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " Deoplete config
 let g:deoplete#enable_at_startup=1
-inoremap <silent><expr> <Tab>
-    \ pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 
 " Movement within 'ins-completion-menu'
-imap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
-imap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-k>"
+imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+imap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Neosnippet config
+imap <Tab> <Plug>(neosnippet_expand_or_jump)
+smap <Tab> <Plug>(neosnippet_expand_or_jump)
+xmap <Tab> <Plug>(neosnippet_expand_target)
 
 " Airline tabline
 let g:airline_powerline_fonts=1

@@ -199,13 +199,22 @@ bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume $output
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume $output_sink -2%
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute $output_sink toggle
 
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Touchpad controls
 bindsym Control+F1 exec --no-startup-id xinput --disable 'AlpsPS/2 ALPS DualPoint TouchPad'
 bindsym Control+F2 exec --no-startup-id xinput --enable 'AlpsPS/2 ALPS DualPoint TouchPad'
+bindsym XF86TouchpadToggle exec --no-startup-id ~/dotfiles/i3/toggletouchpad.sh
+
+# Calculator
+bindsym XF86Calculator exec gnome-calculator
 
 # Keyboard and mouse config
 exec --no-startup-id xset r rate 400 35	# autorepeat delay: 400 ms, autorepeat rate: 35 hits/sec

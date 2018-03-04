@@ -43,7 +43,7 @@ set expandtab                     " Replace <Tab> with spaces
 set laststatus=2                  " Always show the status line
 set list lcs=trail:·,tab:»·       " Show trailing spaces and tabs
 set number                        " Show current line
-set relativenumber                " Relative line numbers
+"set relativenumber                " Relative line numbers
 set shiftround                    " Round indent to multiple of 'shiftwidth' (for << and >>)
 set shiftwidth=2                  " Indent size for << and >>
 set shiftwidth=2                  " Indent size for << and >>

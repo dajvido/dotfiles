@@ -113,9 +113,9 @@ imap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Neosnippet config
 let g:neosnippet#snippets_directory='~/.vim/snippets'
-imap <Tab> <Plug>(neosnippet_expand_or_jump)
-smap <Tab> <Plug>(neosnippet_expand_or_jump)
-xmap <Tab> <Plug>(neosnippet_expand_target)
+imap <expr><Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+smap <expr><Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+xmap <expr><Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_target)" : "\<Tab>"
 
 " Airline tabline
 let g:airline_powerline_fonts=1

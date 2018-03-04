@@ -12,15 +12,13 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(expand('~/.vim/dein'))
   call dein#begin(expand('~/.vim/dein'))
 
-  call dein#add('Shougo/dein.vim')
-
   call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  call dein#add('Shougo/neosnippet.vim', { 'on_event': 'InsertEnter' })
   call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
+  call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
   call dein#add('robertmeta/nofrils')
 

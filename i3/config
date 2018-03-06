@@ -264,5 +264,3 @@ bar {
 exec --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/wallpaper.wiki-Arch-Linux-Wallpaper-for-Desktop-PIC-WPC001791.jpg
 exec --no-startup-id redshift
 exec --no-startup-id nm-applet
-exec --no-startup-id ibus-daemon --daemonize --replace
-#exec --no-startup-id workrave

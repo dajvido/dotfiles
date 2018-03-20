@@ -174,7 +174,7 @@ bindsym $mod+F2 mode "$mode_display"
 hide_edge_borders both
 
 # Shortcuts
-bindsym $mod+o exec firefox
+bindsym $mod+o exec firefox-developer-edition
 bindsym $mod+n exec nautilus
 bindsym $mod+Control+c exec gnome-calculator
 bindsym $mod+p exec spotify

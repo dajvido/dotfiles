@@ -32,7 +32,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -180,8 +180,8 @@ bindsym $mod+Control+c exec gnome-calculator
 bindsym $mod+p exec spotify
 
 # applications as variables
-set $terminal [class="(?i)alacritty"]
-set $vim [class="(?i)alacritty" title="vim|tmux"]
+set $terminal [class="(?i)alacritty|kitty"]
+set $vim [class="(?i)alacritty|kitty" title="vim|tmux"]
 set $browser [class="(?i)firefox|chromium"]
 
 # focus apps

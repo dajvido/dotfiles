@@ -1,6 +1,6 @@
 " Set python path For python extensions
-let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/local/bin/python2'
+let g:python3_host_prog='/usr/local/bin/python3'
 
 " Dein configuration
 if &compatible
@@ -64,14 +64,15 @@ if executable('rg')
   let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   set grepprg=rg\ --vimgrep
 
-  command! -bang -nargs=* FindCS call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  command! -bang -nargs=* FindCS call fzf#vim#grep('rg --column --line-number --no-heading --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  command! -bang -nargs=* FindQuick call fzf#vim#grep('rg --column --line-number --no-heading --glob "!.git/*" --glob "!node_modules" --glob "!package-lock.json" --glob "!yarn.lock" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
-  function! SearchWordWithRipgrep()
-    execute 'FindCS' expand('<cword>')
+  function! SearchWordWithRipgrep(findFunction)
+    execute a:findFunction expand('<cword>')
   endfunction
 
-  function! SearchVisualSelectionWithRipgrep() range
+  function! SearchVisualSelectionWithRipgrep(findFunction) range
     let old_reg=getreg('"')
     let old_regtype=getregtype('"')
     let old_clipboard=&clipboard
@@ -80,13 +81,16 @@ if executable('rg')
     let selection=getreg('"')
     call setreg('"', old_reg, old_regtype)
     let &clipboard=old_clipboard
-    execute 'FindCS' selection
+    execute a:findFunction selection
   endfunction
 
+  nnoremap <silent> <leader>q :FindQuick<CR>
   nnoremap <silent> <leader>g :Find<CR>
   nnoremap <silent> <leader>G :FindCS<CR>
-  nnoremap <silent> K :call SearchWordWithRipgrep()<CR>
-  vnoremap <silent> K :call SearchVisualSelectionWithRipgrep()<CR>
+  nnoremap <silent> K :call SearchWordWithRipgrep('FindCS')<CR>
+  vnoremap <silent> K :call SearchVisualSelectionWithRipgrep('FindCS')<CR>
+  nnoremap <silent> KK :call SearchWordWithRipgrep('FindQuick')<CR>
+  vnoremap <silent> KK :call SearchVisualSelectionWithRipgrep('FindQuick')<CR>
 endif
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>

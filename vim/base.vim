@@ -57,10 +57,6 @@ set ttimeoutlen=10                " Fix delay problem
 set undofile                      " Make undo files
 set updatetime=200                " Set update delay (default 4000ms)
 
-" Assign leader key
-let g:mapleader=","
-let g:maplocalleader="\\"
-
 """          """
 """ Bindings """
 """          """

@@ -57,6 +57,11 @@ set ttimeoutlen=10                " Fix delay problem
 set undofile                      " Make undo files
 set updatetime=200                " Set update delay (default 4000ms)
 
+" Prevent from opening nested nvim inside nvim terminal
+if has('nvim') && executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
 """          """
 """ Bindings """
 """          """

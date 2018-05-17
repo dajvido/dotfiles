@@ -16,11 +16,10 @@
 [core]
 	editor = nvim
 [diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
+	tool = nvr
+[difftool "nvr"]
+	cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[mergetool]
-	prompt = false
+	tool = nvr
+[mergetool "nvr"]
+	cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='

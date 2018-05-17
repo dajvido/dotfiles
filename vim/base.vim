@@ -67,9 +67,6 @@ nnoremap <Leader>ss :execute "mksession! " . g:session_dir . fnamemodify(getcwd(
 " Ctrl-N to disable search match highlight
 nmap <silent> <C-N> :silent noh<CR>
 
-" Ctrol-E to switch between 2 last buffers
-nmap <C-E> :b#<CR>
-
 " Switch between tabs
 nmap <leader>1 1gt
 nmap <leader>2 2gt

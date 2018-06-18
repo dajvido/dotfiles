@@ -144,7 +144,8 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 if has('nvim')
   " Neoterminal
-  let g:neoterm_autoinsert = 1
+  " let g:neoterm_autoinsert = 1
+  let g:neoterm_default_mod = ':vertical'
   inoremap <silent><C-s> <esc>:Ttoggle<CR>
   nnoremap <silent><C-l> :Tclear1<cr>
   nnoremap <silent><C-s> :Ttoggle<CR>

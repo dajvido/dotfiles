@@ -64,8 +64,6 @@ if executable('rg')
   let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   set grepprg=rg\ --vimgrep
 
-  command! -bang -nargs=* FindCS call fzf#vim#grep('rg --column --line-number --no-heading --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
   command! -bang -nargs=* FindQuick call fzf#vim#grep('rg --column --line-number --no-heading --glob "!.git/*" --glob "!node_modules" --glob "!package-lock.json" --glob "!yarn.lock" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
   function! SearchWordWithRipgrep(findFunction)
@@ -84,13 +82,9 @@ if executable('rg')
     execute a:findFunction selection
   endfunction
 
-  nnoremap <silent> <leader>q :FindQuick<CR>
-  nnoremap <silent> <leader>g :Find<CR>
-  nnoremap <silent> <leader>G :FindCS<CR>
-  nnoremap <silent> K :call SearchWordWithRipgrep('FindCS')<CR>
-  vnoremap <silent> K :call SearchVisualSelectionWithRipgrep('FindCS')<CR>
-  nnoremap <silent> KK :call SearchWordWithRipgrep('FindQuick')<CR>
-  vnoremap <silent> KK :call SearchVisualSelectionWithRipgrep('FindQuick')<CR>
+  nnoremap <silent> <leader>g :FindQuick<CR>
+  nnoremap <silent> K :call SearchWordWithRipgrep('FindQuick')<CR>
+  vnoremap <silent> K :call SearchVisualSelectionWithRipgrep('FindQuick')<CR>
 endif
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
@@ -156,5 +150,5 @@ if has('nvim')
   command! -nargs=+ Tg :T git <args>
 
   " Files diff
-  nmap <leader>diff :windo :diffthis<CR>
+  nmap <leader>d :windo :diffthis<CR>
 endif

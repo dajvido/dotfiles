@@ -37,6 +37,9 @@ if dein#load_state(expand('~/.vim/dein'))
 
   call dein#add('w0rp/ale')
 
+  call dein#add('pangloss/vim-javascript', { 'on_ft': [ 'js', 'jsx' ]})
+  call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
+
   if has('nvim')
     call dein#add('kassio/neoterm')
   end

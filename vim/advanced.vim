@@ -21,6 +21,7 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
   call dein#add('robertmeta/nofrils')
+  call dein#add('morhetz/gruvbox')
 
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
@@ -49,9 +50,10 @@ if dein#check_install()
 endif
 
 " Theme
-filetype plugin indent on
 set termguicolors
-colorscheme nofrils-dark
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
 " Syntax
 set signcolumn=yes
@@ -121,7 +123,7 @@ xmap <expr><Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 
 " Airline tabline
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 set noshowmode
 let g:airline#extensions#tabline#enabled=1
 

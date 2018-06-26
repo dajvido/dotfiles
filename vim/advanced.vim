@@ -66,6 +66,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \}
 nnoremap <silent> <leader>a :ALEFix<CR>
+com! FormatJSON %!python -m json.tool
 
 " FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting

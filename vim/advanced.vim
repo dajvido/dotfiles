@@ -30,6 +30,7 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
   call dein#add('tpope/vim-fugitive', { 'on_event': 'CursorHold' })
+  call dein#add('tpope/vim-rhubarb')
   call dein#add('airblade/vim-gitgutter')
 
   call dein#add('scrooloose/nerdtree', { 'lazy': 1 })

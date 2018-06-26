@@ -62,6 +62,10 @@ let g:gruvbox_contrast_dark='hard'
 " Syntax
 set signcolumn=yes
 let g:ale_echo_msg_format='%severity% [%linter%] %s'
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+nnoremap <silent> <leader>a :ALEFix<CR>
 
 " FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting

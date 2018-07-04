@@ -71,7 +71,7 @@ com! FormatJSON %!python -m json.tool
 " FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,**/node_modules,**/dist}/*" 2> /dev/null'
   let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   set grepprg=rg\ --vimgrep
 

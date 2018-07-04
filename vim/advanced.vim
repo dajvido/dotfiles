@@ -166,4 +166,7 @@ if has('nvim')
 
   " Files diff
   nmap <leader>d :windo :diffthis<CR>
+
+  " Neovim remote
+  let $VISUAL = 'nvr -cc split --remote-wait'
 endif

@@ -1,0 +1,1 @@
+find . -name \*.orig -delete

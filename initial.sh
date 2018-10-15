@@ -5,5 +5,5 @@ ln -sfn $HOME/dotfiles/vim/init.vim $HOME/.vimrc
 ln -sfn $HOME/dotfiles/i3 $HOME/.i3
 ln -sfn $HOME/dotfiles/dunst $HOME/.config/dunst
 ln -sfn $HOME/dotfiles/alacritty $HOME/.config
-ln -sfn $HOME/dotfiles/kitty $HOME/.config
+ln -sfn $HOME/dotfiles/kitty/custom.conf $HOME/.config/kitty
 ln -sfn $HOME/dotfiles/tmux.conf $HOME/.tmux.conf

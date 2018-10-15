@@ -6,6 +6,7 @@
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	unadd = reset HEAD
+	unamend =  reset --soft HEAD@{1}
 	uncommit = reset HEAD~1 --soft
 	unmerge = reset --hard ORIG_HEAD
 [filter "lfs"]

@@ -1,0 +1,78 @@
+{
+    "breadcrumbs.enabled": true,
+    "css.validate": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [ 100 ],
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.tabSize": 2,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "eslint.autoFixOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "gitlens.advanced.messages": { "suppressShowKeyBindingsNotice": true },
+    "gitlens.keymap": "chorded",
+    "javascript.validate.enable": false,
+    "scss.validate": false,
+    "search.exclude": {
+        "**/bower_components": true,
+        "**/coverage": true,
+        "**/dist": true,
+        "**/node_modules": true,
+    },
+    "stylelint.enable": true,
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.scrollback": 9223372036854775806,
+    "typescript.validate.enable": false,
+    "window.zoomLevel": 1,
+    "fileswitcher.mappings": [
+        {
+            "from": "(.+).js",
+            "to": ":1.spec.js"
+        },
+        {
+            "from": "(.+).spec.js",
+            "to": ":1.js"
+        },
+        {
+            "from": "(.+).jsx",
+            "to": ":1.spec.jsx"
+        },
+        {
+            "from": "(.+).spec.jsx",
+            "to": ":1.jsx"
+        },
+        {
+            "from": "(.+).jsx",
+            "to": ":1.spec.js"
+        },
+        {
+            "from": "(.+).spec.jsx",
+            "to": ":1.js"
+        },
+        {
+            "from": "(.+).js",
+            "to": ":1.spec.jsx"
+        },
+        {
+            "from": "(.+).spec.js",
+            "to": ":1.jsx"
+        }
+    ],
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "cSpell.userWords": [
+        "rgba",
+        "woff"
+    ],
+    "cSpell.language": "en-GB,en",
+    "jest.runAllTestsFirst": false,
+    "files.insertFinalNewline": true,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Material Theme"
+}

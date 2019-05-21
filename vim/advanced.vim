@@ -63,7 +63,12 @@ let g:gruvbox_contrast_dark='hard'
 set signcolumn=yes
 let g:ale_echo_msg_format='%severity% [%linter%] %s'
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
+\   'json': ['prettier', 'jq'],
+\   'python': ['autopep8'],
+\   'css': ['prettier', 'stylelint'],
+\   'scss': ['prettier', 'stylelint']
 \}
 nnoremap <silent> <leader>a :ALEFix<CR>
 com! FormatJSON %!python -m json.tool

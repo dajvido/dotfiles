@@ -1,0 +1,4 @@
+" Set paths to speed-up and required by some extensions
+let g:python_host_prog=
+let g:python3_host_prog=
+let g:node_host_prog=

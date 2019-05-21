@@ -1,4 +1,5 @@
 vim/.netrwhist
+vim/custom.vim
 vim/backup/*
 vim/dein/*
 vim/session/*

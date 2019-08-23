@@ -1,5 +1,15 @@
 snippet     cl
 alias       log
 options     head
-abbr        console.log('LABEL', variable);
+abbr        console.log('<variable>', variable);
     console.log('${1}', $1);${0:#:TARGET}
+
+snippet     ld
+options     head
+abbr        console.log('[DEBUG] <variable>', variable);
+    console.log('[DEBUG] ${1}', $1);${0:#:TARGET}
+
+snippet     ldo
+options     head
+abbr        console.log('[DEBUG] <variable>', variable);
+    console.log('[DEBUG] ${1}', $1) || ${0:#:TARGET}

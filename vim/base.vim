@@ -69,8 +69,8 @@ endif
 nnoremap <Leader>sl :wall<Bar>execute "source " . g:session_dir . fnamemodify(getcwd(), ':t')<CR>
 nnoremap <Leader>ss :execute "mksession! " . g:session_dir . fnamemodify(getcwd(), ':t')<CR>
 
-" Ctrl-N to disable search match highlight
-nmap <silent> <C-N> :silent noh<CR>
+" Disable search match highlight
+nmap <leader>n :silent noh<CR>
 
 " Switch between tabs
 nmap <leader>1 1gt

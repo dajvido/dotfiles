@@ -16,6 +16,10 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
   call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
+  call dein#add('terryma/vim-multiple-cursors')
+
+  call dein#add('christoomey/vim-tmux-navigator')
+
   call dein#add('robertmeta/nofrils')
   call dein#add('morhetz/gruvbox')
 
@@ -60,19 +64,21 @@ set signcolumn=yes
 let g:ale_echo_msg_format='%severity% [%linter%] %s'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'css': ['prettier', 'stylelint'],
 \   'javascript': ['prettier', 'eslint'],
 \   'json': ['prettier', 'jq'],
 \   'python': ['autopep8'],
-\   'css': ['prettier', 'stylelint'],
+\   'ruby': ['rubocop'],
 \   'scss': ['prettier', 'stylelint']
 \}
+let g:ale_linters_ignore = {'javascript': ['tsserver']}
 nnoremap <silent> <leader>a :ALEFix<CR>
 com! FormatJSON %!python -m json.tool
 
 " FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,**/node_modules,**/dist}/*" 2> /dev/null'
+  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,**/node_modules,**/dist,**/coverage}/*" 2> /dev/null'
   let $FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   set grepprg=rg\ --vimgrep
 
@@ -118,6 +124,10 @@ imap <C-x><C-f> <plug>(fzf-complete-file)
 imap <C-x><C-p> <plug>(fzf-complete-path)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
+" Override mapping for vim-multiple-cursors
+let g:multi_cursor_select_all_word_key = '<C-a>'
+let g:multi_cursor_select_all_key      = 'g<C-a>'
+
 " Deoplete config
 let g:deoplete#enable_at_startup=1
 
@@ -144,8 +154,8 @@ map <C-P> :NERDTreeToggle<CR>
 nmap <leader>p :NERDTreeFind<CR>
 
 " Navigate between ALE errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Nerdcommenter
 let g:NERDSpaceDelims=1

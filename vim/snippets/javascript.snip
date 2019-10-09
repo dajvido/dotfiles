@@ -13,3 +13,8 @@ snippet     ldo
 options     head
 abbr        console.log('[DEBUG] <variable>', variable);
     console.log('[DEBUG] ${1}', $1) || ${0:#:TARGET}
+
+snippet     ldb
+options     head
+abbr        console.log('[DEBUG] <text>');
+    console.log('[DEBUG] ${1}');${0:#:TARGET}

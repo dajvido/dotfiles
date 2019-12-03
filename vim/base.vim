@@ -111,3 +111,6 @@ vnoremap > >gv
 
 " Files diff
 nmap <leader>d :windo :diffthis<CR>
+
+" Toggle paste mode
+set pastetoggle=<F2>

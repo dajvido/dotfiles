@@ -83,6 +83,7 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 
   command! -bang -nargs=* FindQuick call fzf#vim#grep('rg --column --line-number --no-heading --glob "!.git/*" --glob "!node_modules" --glob "!package-lock.json" --glob "!yarn.lock" --color "always" '.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%', '?'), <bang>0)
+  command! -bang -nargs=* FindQuickInFileParentDir call fzf#vim#grep(printf('rg --column --line-number --no-heading --glob "!.git/*" --glob "!node_modules" --glob "!package-lock.json" --glob "!yarn.lock" --color "always" %s ', shellescape(<q-args>)) . expand('%:h'), 1, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
   function! SearchWordWithRipgrep(findFunction)
     execute a:findFunction expand('<cword>')
@@ -101,6 +102,7 @@ if executable('rg')
   endfunction
 
   nnoremap <silent> <leader>g :FindQuick<CR>
+  nnoremap <silent> <leader>G :FindQuickInFileParentDir<CR>
   nnoremap <silent> K :call SearchWordWithRipgrep('FindQuick')<CR>
   vnoremap <silent> K :call SearchVisualSelectionWithRipgrep('FindQuick')<CR>
 endif

@@ -4,10 +4,11 @@ if &compatible
 endif
 
 " Dein plugins
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state(expand('~/.vim/dein'))
-  call dein#begin(expand('~/.vim/dein'))
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -48,6 +49,9 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#end()
   call dein#save_state()
 endif
+
+filetype plugin indent on
+syntax enable
 
 if dein#check_install()
   call dein#install()

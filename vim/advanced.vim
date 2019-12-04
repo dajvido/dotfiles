@@ -17,6 +17,10 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  if has('nvim')
+    call dein#add('neovim/nvim-lsp')
+  endif
+
   call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
   call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
@@ -42,6 +46,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('pangloss/vim-javascript', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
+  call dein#add('rust-lang/rust.vim', { 'on_ft': [ 'rs' ]})
 
   call dein#end()
   call dein#save_state()
@@ -69,9 +74,11 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'json': ['prettier', 'jq'],
 \   'python': ['autopep8'],
+\   'rust': ['rustfmt'],
 \   'ruby': ['rubocop'],
 \   'scss': ['prettier', 'stylelint']
 \}
+let g:ale_linters = {'rust': ['rls']}
 let g:ale_linters_ignore = {'javascript': ['tsserver']}
 nnoremap <silent> <leader>a :ALEFix<CR>
 com! FormatJSON %!python -m json.tool
@@ -229,6 +236,9 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 if has('nvim')
+  " LSP
+  call nvim_lsp#setup("rls", {})
+
   " Neoterminal
   " let g:neoterm_autoinsert = 1
   let g:neoterm_default_mod = ':vertical'

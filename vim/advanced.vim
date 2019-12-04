@@ -9,11 +9,13 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+
   call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
   call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
@@ -21,7 +23,6 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('christoomey/vim-tmux-navigator')
 
-  call dein#add('robertmeta/nofrils')
   call dein#add('morhetz/gruvbox')
 
   call dein#add('vim-airline/vim-airline')
@@ -41,10 +42,6 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('pangloss/vim-javascript', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
-
-  if has('nvim')
-    call dein#add('kassio/neoterm')
-  end
 
   call dein#end()
   call dein#save_state()
@@ -183,7 +180,4 @@ if has('nvim')
 
   " Files diff
   nmap <leader>d :windo :diffthis<CR>
-
-  " Neovim remote
-  let $VISUAL = 'nvr -cc split --remote-wait'
 endif

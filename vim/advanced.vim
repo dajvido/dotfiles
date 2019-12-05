@@ -238,6 +238,7 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 if has('nvim')
   " LSP
   call nvim_lsp#setup("rls", {})
+  call nvim_lsp#setup("tsserver", {})
 
   " Neoterminal
   " let g:neoterm_autoinsert = 1

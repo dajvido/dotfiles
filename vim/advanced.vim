@@ -159,12 +159,12 @@ let g:airline#extensions#tabline#enabled=1
 
 " Defx
 autocmd BufWritePost * call defx#redraw()
-map <C-P> :Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=30 -direction=topleft -toggle<CR>
+map <C-P> :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 autocmd FileType defx call s:defx_my_settings()
   function! s:defx_my_settings() abort
     " Define mappings
     nnoremap <silent><buffer><expr> <CR>
-    \ defx#do_action('drop')
+    \ defx#do_action('open')
     nnoremap <silent><buffer><expr> c
     \ defx#do_action('copy')
     nnoremap <silent><buffer><expr> m

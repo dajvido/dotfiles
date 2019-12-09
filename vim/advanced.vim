@@ -46,6 +46,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('pangloss/vim-javascript', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
+  call dein#add('jparise/vim-graphql', { 'on_ft': [ 'graphql', 'graphqls', 'gql', 'tsx', 'jsx', 'js', 'prisma' ]})
   call dein#add('rust-lang/rust.vim', { 'on_ft': [ 'rs' ]})
 
   call dein#end()

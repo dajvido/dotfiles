@@ -11,7 +11,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('Shougo/defx.nvim')
+
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -48,6 +50,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('jparise/vim-graphql', { 'on_ft': [ 'graphql', 'graphqls', 'gql', 'tsx', 'jsx', 'js', 'prisma' ]})
   call dein#add('rust-lang/rust.vim', { 'on_ft': [ 'rs' ]})
+  call dein#add('fatih/vim-go', { 'on_ft': [ 'go' ]})
 
   call dein#end()
   call dein#save_state()
@@ -75,14 +78,19 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'json': ['prettier', 'jq'],
 \   'python': ['autopep8'],
-\   'rust': ['rustfmt'],
 \   'ruby': ['rubocop'],
+\   'rust': ['rustfmt'],
 \   'scss': ['prettier', 'stylelint']
 \}
-let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {'go': ['gopls'], 'rust': ['rls']}
 let g:ale_linters_ignore = {'javascript': ['tsserver']}
 nnoremap <silent> <leader>a :ALEFix<CR>
 com! FormatJSON %!python -m json.tool
+
+" Go config
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_fmt_command = "goimports"
 
 " FZF & Ripgrep
 let g:fzf_nvim_statusline=0 " disable statusline overwriting
@@ -140,7 +148,11 @@ let g:multi_cursor_select_all_word_key = '<C-a>'
 let g:multi_cursor_select_all_key      = 'g<C-a>'
 
 " Deoplete config
+set completeopt+=noselect
 let g:deoplete#enable_at_startup=1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#cgo = 1
 
 " Movement within 'ins-completion-menu'
 imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"

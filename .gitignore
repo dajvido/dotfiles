@@ -1,7 +1,8 @@
 vim/.netrwhist
 vim/custom.vim
+vim/autoload/*
 vim/backup/*
-vim/dein/*
+vim/ftplugin/*
 vim/session/*
 vim/temp/*
 vim/undo/*

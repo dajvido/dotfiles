@@ -19,10 +19,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  if has('nvim')
-    call dein#add('neovim/nvim-lsp')
-  endif
-
   call dein#add('Shougo/neosnippet-snippets', { 'on_event': 'InsertEnter' })
   call dein#add('Shougo/neosnippet.vim', { 'depends': 'neosnippet-snippets', 'on_event': 'InsertEnter' })
 
@@ -49,7 +45,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('pangloss/vim-javascript', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('mxw/vim-jsx', { 'on_ft': [ 'js', 'jsx' ]})
   call dein#add('jparise/vim-graphql', { 'on_ft': [ 'graphql', 'graphqls', 'gql', 'tsx', 'jsx', 'js', 'prisma' ]})
-  call dein#add('rust-lang/rust.vim', { 'on_ft': [ 'rs' ]})
   call dein#add('fatih/vim-go', { 'on_ft': [ 'go' ]})
 
   call dein#end()
@@ -79,17 +74,14 @@ let g:ale_fixers = {
 \   'json': ['prettier', 'jq'],
 \   'python': ['autopep8'],
 \   'ruby': ['rubocop'],
-\   'rust': ['rustfmt'],
 \   'scss': ['prettier', 'stylelint']
 \}
-let g:ale_linters = {'go': ['gopls'], 'rust': ['rls']}
+let g:ale_linters = {'go': ['gopls']}
 let g:ale_linters_ignore = {'javascript': ['tsserver']}
 nnoremap <silent> <leader>a :ALEFix<CR>
 com! FormatJSON %!python -m json.tool
 
 " Go config
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
 
 " FZF & Ripgrep
@@ -152,7 +144,6 @@ set completeopt+=noselect
 let g:deoplete#enable_at_startup=1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#cgo = 1
 
 " Movement within 'ins-completion-menu'
 imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"

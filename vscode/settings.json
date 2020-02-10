@@ -2,7 +2,11 @@
     "breadcrumbs.enabled": true,
     "cSpell.language": "en-GB,en",
     "cSpell.userWords": [
-        "colours"
+        "SCID",
+        "colours",
+        "optimizely",
+        "scids",
+        "upsell"
     ],
     "css.validate": false,
     "editor.fontFamily": "Fira Code",
@@ -16,7 +20,6 @@
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
-    "eslint.autoFixOnSave": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
@@ -100,4 +103,46 @@
     "files.eol": "\n",
     "prettier.endOfLine": "lf",
     "jest.pathToJest": "node_modules/.bin/jest",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "liveshare.featureSet": "insiders",
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+    ],
+    "files.trimFinalNewlines": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
 }

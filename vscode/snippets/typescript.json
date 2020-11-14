@@ -1,5 +1,5 @@
 {
-	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
+	// Place your snippets for typescript here. Each snippet is defined under a snippet name and has a prefix, body and
 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
 	// same ids are connected.
@@ -40,29 +40,4 @@
 		],
 		"description": "Log output with DEBUG flag of an object to console with OR ending"
 	},
-	// "import": {
-  //   "prefix": "impx",
-  //   "body": "import ${1/(?:.*\\/)?([A-Za-z-_]+)$/$1/gm}$2 from '${1:module}'${0:;}",
-  //   "description": "Imports entire module statement in ES6 syntax"
-  // },
-	// "import": {
-  //   "prefix": "imp",
-  //   "body": "import ${1/(?:.*\\/)?([A-Za-z-_]+)$/${1/(?:(?:-)(.*))+/${2:/capitalize}${3:/capitalize}/gm}/gm}$2 from '${1:module}'${0:;}",
-  //   "description": "Imports entire module statement in ES6 syntax"
-  // },
-	"Require js module": {
-		"prefix": "req",
-		"body": [
-			"${2:${3|const ,let |} = }require('$1')${0:;}"
-		],
-		"description": "Use js syntax to require module"
-	},
-	"Create GraphQL mutation create": {
-		"prefix": "create",
-		"body": [
-			"create${1/(.*)/${1:/capitalize}/}(parent, args, ctx, info) {",
-			"\t$2",
-			"},$0"
-		]
-	}
 }

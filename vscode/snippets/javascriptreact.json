@@ -22,7 +22,7 @@
 	"Print to console a string with DEBUG flag": {
 		"prefix": "ldb",
 		"body": [
-			"console.log(\"[DEBUG][$TM_FILENAME_BASE] { $1 }\");$0"
+			"console.log(\"[DEBUG][$TM_FILENAME_BASE] $1\");$0"
 		],
 		"description": "Log string with DEBUG flag to console"
 	},
